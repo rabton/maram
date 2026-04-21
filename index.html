@@ -13,147 +13,150 @@
         }
 
         :root {
-            --primary: #0f2b6d;
-            --primary-dark: #081c4a;
-            --secondary: #6d28d9;
-            --accent: #ec489a;
-            --bg-light: #f9fafb;
-            --white: #ffffff;
-            --text-dark: #111827;
-            --text-muted: #4b5563;
-            --border: #e5e7eb;
-            --shadow-card: 0 20px 25px -12px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.02);
+            --primary: #0b2b5c;      /* bleu profond */
+            --primary-dark: #051a3b;
+            --secondary: #6d28d9;    /* violet */
+            --accent: #f59e0b;       /* or */
+            --accent-rose: #ec489a;
+            --bg-dark: #0a0f1c;
+            --bg-card: rgba(15, 25, 45, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-light: #f1f5f9;
+            --text-muted: #cbd5e1;
+            --shadow-card: 0 20px 30px -12px rgba(0, 0, 0, 0.4);
             --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
-            color: var(--text-dark);
+            background: radial-gradient(circle at 10% 20%, #0b1120, #030712);
+            color: var(--text-light);
             scroll-behavior: smooth;
         }
 
+        /* Progress bar */
         #progress-container {
             position: fixed;
             top: 0;
             right: 0;
             left: 0;
-            height: 5px;
-            background: #e2e8f0;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
             z-index: 1100;
         }
         #progress-bar {
             width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            background: linear-gradient(90deg, var(--accent), var(--secondary), var(--accent-rose));
             transition: width 0.2s;
         }
 
+        /* Header glassmorph */
         .main-header {
-            background: var(--white);
-            border-bottom: 1px solid var(--border);
+            background: rgba(10, 15, 28, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
             padding: 0.8rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
         .logo-group {
             display: flex;
             align-items: center;
             gap: 20px;
         }
-        .logo-group img {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-        }
-        .title-team {
-            text-align: left;
+        .logo-icon {
+            background: var(--secondary);
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 0 12px rgba(109,40,217,0.5);
         }
         .title-team h1 {
             font-size: 1.6rem;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #f9fafb, #cbd5e1);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
         .title-team p {
             font-weight: 600;
-            color: var(--secondary);
+            color: var(--accent);
             font-size: 0.9rem;
         }
-        @media (max-width: 700px) {
-            .main-header { flex-direction: column; text-align: center; }
-            .title-team { text-align: center; }
-        }
 
+        /* Nav */
         .nav-sticky {
             position: sticky;
             top: 0;
-            background: rgba(255,255,255,0.96);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 10, 20, 0.9);
+            backdrop-filter: blur(12px);
             z-index: 1000;
             padding: 0.7rem 5%;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.4rem;
-            border-bottom: 1px solid var(--border);
-            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05);
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--glass-border);
         }
         .nav-sticky a {
-            color: var(--text-dark);
+            color: var(--text-light);
             text-decoration: none;
             font-weight: 600;
             padding: 0.4rem 1rem;
             border-radius: 40px;
             transition: var(--transition);
             font-size: 0.85rem;
-            background: transparent;
         }
         .nav-sticky a:hover {
-            background: var(--primary);
+            background: var(--secondary);
             color: white;
             transform: translateY(-2px);
+            box-shadow: 0 0 8px var(--secondary);
         }
 
+        /* Hero */
         .hero {
             text-align: center;
             padding: 3rem 1.5rem 4rem;
-            background: radial-gradient(circle at 10% 30%, rgba(15,43,109,0.05), rgba(109,40,217,0.02));
+            background: radial-gradient(circle at 70% 20%, rgba(109,40,217,0.15), transparent);
         }
         .hero h1 {
             font-size: 2.6rem;
             font-weight: 800;
-            color: var(--primary);
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .hero .sub {
             font-size: 1.3rem;
-            color: var(--secondary);
+            color: var(--accent);
             font-weight: 500;
             margin: 0.5rem 0;
         }
         .btn-start {
-            background: linear-gradient(95deg, var(--primary), var(--secondary));
+            background: linear-gradient(95deg, var(--secondary), var(--accent-rose));
             color: white;
             border: none;
-            padding: 14px 36px;
+            padding: 12px 32px;
             border-radius: 60px;
             font-weight: bold;
             font-size: 1rem;
             margin-top: 1.5rem;
             cursor: pointer;
             transition: 0.2s;
-            box-shadow: 0 8px 20px rgba(15,43,109,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         .btn-start:hover {
             transform: scale(1.02);
-            box-shadow: 0 12px 28px rgba(15,43,109,0.4);
+            box-shadow: 0 0 15px var(--accent-rose);
         }
 
         .container {
@@ -168,27 +171,32 @@
         .section-title {
             font-size: 2rem;
             font-weight: 800;
-            border-right: 6px solid var(--secondary);
+            border-right: 6px solid var(--accent);
             padding-right: 1rem;
             margin-bottom: 2rem;
-            color: var(--primary-dark);
+            color: var(--text-light);
         }
 
-        .objectives-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-        }
-        .obj-card {
-            background: var(--white);
+        /* Cartes avec effet glass */
+        .obj-card, .timeline-card, .debate-card, .accordion-item, .interactive-text, .indicators-wrapper, .video-container, .educational-note {
+            background: var(--bg-card);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
             border-radius: 32px;
-            padding: 1.8rem 1rem;
-            text-align: center;
             box-shadow: var(--shadow-card);
             transition: var(--transition);
-            border-bottom: 4px solid var(--secondary);
         }
-        .obj-card:hover { transform: translateY(-8px); }
+        .obj-card:hover, .timeline-card:hover, .debate-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            background: rgba(20, 30, 55, 0.85);
+        }
+        .obj-card h3, .timeline-card h3, .debate-card h3 {
+            color: var(--accent);
+        }
+        .obj-card p, .timeline-card p, .debate-card p {
+            color: var(--text-muted);
+        }
 
         .timeline-large {
             display: flex;
@@ -199,181 +207,114 @@
         .timeline-card {
             flex: 1;
             min-width: 220px;
-            background: var(--white);
-            border-radius: 32px;
             padding: 2rem 1.5rem;
             text-align: center;
             cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow-card);
-            border: 1px solid rgba(109,40,217,0.2);
-        }
-        .timeline-card:hover {
-            transform: translateY(-10px);
-            background: #faf5ff;
-            border-color: var(--secondary);
-        }
-        .timeline-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.8rem;
-            color: var(--primary);
         }
 
+        /* Indicateurs */
         .indicators-wrapper {
             display: grid;
             grid-template-columns: 1fr 300px;
             gap: 2rem;
-            background: var(--white);
-            border-radius: 40px;
             padding: 1.8rem;
-            box-shadow: var(--shadow-card);
-        }
-        .tags-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .tag-group h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
         }
         .linguistic-tag {
-            background: #ede9fe;
+            background: rgba(109,40,217,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
             padding: 6px 18px;
             border-radius: 40px;
             font-weight: 600;
             cursor: pointer;
             transition: 0.2s;
+            color: white;
         }
         .linguistic-tag:hover {
             background: var(--secondary);
-            color: white;
             transform: scale(1.02);
         }
         .explanation-panel {
-            background: #f1f4f9;
-            border-radius: 28px;
+            background: rgba(0,0,0,0.4);
+            border-right: 4px solid var(--accent);
+            border-radius: 24px;
             padding: 1.2rem;
-            border-right: 4px solid var(--secondary);
-            font-size: 1rem;
-            color: var(--text-dark);
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8), 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .explanation-panel h4 {
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-        }
-        #linguisticExplanation {
-            line-height: 1.6;
-        }
-        @media (max-width: 800px) {
-            .indicators-wrapper { grid-template-columns: 1fr; }
         }
 
-        .interactive-text {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 32px;
-            line-height: 1.9;
-            text-align: justify;
-            box-shadow: var(--shadow-card);
-        }
+        /* Texte interactif */
         .analysis-span {
-            cursor: pointer;
-            background: #dbeafe;
+            background: rgba(59,130,246,0.3);
             border-radius: 16px;
             padding: 2px 8px;
             transition: 0.1s;
             display: inline-block;
             margin: 3px 2px;
             font-weight: 500;
+            cursor: pointer;
         }
         .analysis-span:hover {
-            background: #bfdbfe;
+            background: var(--secondary);
             transform: scale(1.01);
         }
 
-        /* Popup global */
-        .custom-popup {
+        /* Popup fixe */
+        .fixed-popup {
             position: fixed;
-            background: #1e293b;
+            bottom: 30px;
+            right: 30px;
+            background: #1e1b2e;
+            border-right: 4px solid var(--accent);
             color: white;
             padding: 14px 22px;
             border-radius: 32px;
             font-size: 0.95rem;
-            max-width: 320px;
+            max-width: 350px;
             z-index: 1300;
             box-shadow: 0 20px 35px -8px black;
-            pointer-events: none;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
             font-weight: 500;
-            border-right: 4px solid var(--accent);
-            transition: opacity 0.15s;
-            text-align: right;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
         }
+        .fixed-popup.show { opacity: 1; }
 
-        .debate-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        .debate-card {
-            background: var(--white);
-            border-radius: 32px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow-card);
-        }
-        .accordion-item {
-            background: white;
-            margin-bottom: 1rem;
-            border-radius: 24px;
-            overflow: hidden;
-        }
-        .acc-header {
-            background: #f8fafc;
+        .accordion-item .acc-header {
+            background: rgba(0,0,0,0.3);
             padding: 1rem 1.5rem;
             font-weight: 700;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
+            color: var(--accent);
         }
-        .acc-body {
+        .accordion-item .acc-body {
             display: none;
             padding: 1rem 1.5rem;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
         }
-        .video-container {
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
+
+        .replay-btn {
+            background: transparent;
+            border: 2px solid var(--accent);
+            padding: 8px 24px;
+            border-radius: 40px;
+            color: var(--accent);
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
         }
-        video {
-            width: 100%;
-            display: block;
+        .replay-btn:hover {
+            background: var(--accent);
+            color: black;
         }
         .footer {
-            background: #0f172a;
-            color: #cbd5e1;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid var(--glass-border);
             padding: 2rem 5%;
             text-align: center;
             border-radius: 40px 40px 0 0;
-            margin-top: 2rem;
-        }
-        .replay-btn {
-            background: transparent;
-            border: 2px solid #3b82f6;
-            padding: 8px 24px;
-            border-radius: 40px;
-            color: #3b82f6;
-            font-weight: bold;
-            margin-top: 1rem;
-            cursor: pointer;
         }
         .fade-in {
             opacity: 0;
@@ -384,16 +325,10 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .educational-note {
-            background: #fffbeb;
-            border-radius: 28px;
-            padding: 1.2rem;
-            text-align: center;
-            border-right: 5px solid #f59e0b;
-        }
         @media (max-width: 700px) {
             .debate-split { grid-template-columns: 1fr; }
             .timeline-large { flex-direction: column; }
+            .indicators-wrapper { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -403,8 +338,8 @@
 
 <header class="main-header">
     <div class="logo-group">
-        <img src="logo1.png" alt="شعار الكلية" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%231e3a8a%22/%3E%3Ctext x=%2250%22 y=%2267%22 font-size=%2238%22 text-anchor=%22middle%22 fill=%22white%22%3Eكلية%3C/text%3E%3C/svg%3E'">
-        <img src="logo2.png" alt="شعار الجامعة" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%236d28d9%22/%3E%3Ctext x=%2250%22 y=%2267%22 font-size=%2236%22 text-anchor=%22middle%22 fill=%22white%22%3Eجامعة%3C/text%3E%3C/svg%3E'">
+        <div class="logo-icon">🏛️</div>
+        <div class="logo-icon">🎓</div>
     </div>
     <div class="title-team">
         <h1>النص الجدلي: من الفهم إلى الإقناع</h1>
@@ -435,7 +370,7 @@
     <!-- 01 تعريف -->
     <section id="definition">
         <h2 class="section-title">📍 01. تعريف النص الجدلي</h2>
-        <div class="card" style="background:white; border-radius:32px; padding:1.8rem; box-shadow:var(--shadow-card);">
+        <div class="obj-card" style="padding:1.8rem;">
             <p style="font-size:1.2rem;">النصّ الجدلي هو نص يناقش قضية خلافية إشكالية تحتمل وجهتي نظر مختلفتين، كل منهما يمكن أن تكون صحيحة، وتتضمن أفكاراً وأدلة وحججاً. يتبنّى كل طرف رأياً يدافع عن فكرته بطريقة منطقية مستندة إلى أسس سليمة مع تقديم بدائل وحلول للمشكلة.</p>
         </div>
     </section>
@@ -443,7 +378,7 @@
     <!-- 02 أهداف -->
     <section id="objectives">
         <h2 class="section-title">🎯 02. أهداف النص الجدلي</h2>
-        <div class="objectives-grid">
+        <div class="objectives-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2rem;">
             <div class="obj-card fade-in"><h3>🧠 تفكير نقدي</h3><p>تدريب القارئ على تحليل الآراء ونقدها بموضوعية.</p></div>
             <div class="obj-card fade-in"><h3>📌 تنظيم الحجج</h3><p>تقديم الأدلة بطريقة منظمة ومتسلسلة.</p></div>
             <div class="obj-card fade-in"><h3>💬 تعلم الحوار</h3><p>إدارة النقاش وتبادل الآراء باحترام.</p></div>
@@ -455,15 +390,15 @@
     <section id="structure">
         <h2 class="section-title">🏗️ 03. بنية النص الجدلي</h2>
         <div class="timeline-large">
-            <div class="timeline-card fade-in" onclick="showStructurePopup(event, 'المقدمة', 'عرض القضية أو المشكلة الخلافية بطريقة واضحة، وتقديم الإشكالية التي ستُثار. تهدف إلى جذب القارئ وبيان أهمية الموضوع.')">
+            <div class="timeline-card fade-in" onclick="showStructurePopup('المقدمة', 'عرض القضية أو المشكلة الخلافية بطريقة واضحة، وتقديم الإشكالية التي ستُثار.')">
                 <h3>📌 المقدمة</h3>
                 <p>عرض القضية الخلافية</p>
             </div>
-            <div class="timeline-card fade-in" onclick="showStructurePopup(event, 'العرض', 'تقديم الرأي الأساسي مدعومًا بالحجج (عقلية، واقعية، إحصائية) + عرض الرأي المعارض ومناقشته باستخدام أدوات الربط والاستدراك.')">
+            <div class="timeline-card fade-in" onclick="showStructurePopup('العرض', 'تقديم الرأي الأساسي مدعومًا بالحجج + عرض الرأي المعارض ومناقشته.')">
                 <h3>⚖️ العرض</h3>
                 <p>الحجج والآراء المتعددة</p>
             </div>
-            <div class="timeline-card fade-in" onclick="showStructurePopup(event, 'الخاتمة', 'استنتاج أو تقديم حلول بديلة للمشكلة المطروحة، مع ترجيح أحد الرأيين أو التركيز على التكامل.')">
+            <div class="timeline-card fade-in" onclick="showStructurePopup('الخاتمة', 'استنتاج أو تقديم حلول بديلة للمشكلة، مع ترجيح أحد الرأيين أو التركيز على التكامل.')">
                 <h3>🔚 الخاتمة</h3>
                 <p>استنتاج أو حلول</p>
             </div>
@@ -475,52 +410,52 @@
         <h2 class="section-title">🔖 04. المؤشرات اللغوية (أدوات الحجاج)</h2>
         <div class="indicators-wrapper">
             <div class="tags-container">
-                <div class="tag-group"><h4>📌 روابط التعليل والنتيجة</h4><div class="tag-list"><span class="linguistic-tag" onclick="showLinguisticExplanation('لأن', 'تُستخدم لبيان السبب والتعليل، مثل: “لأن التربية السليمة تحمي الطفل”.')">لأن</span><span class="linguistic-tag" onclick="showLinguisticExplanation('لذلك', 'تفيد النتيجة المترتبة، مثل: “لذلك يجب تشديد القوانين”.')">لذلك</span><span class="linguistic-tag" onclick="showLinguisticExplanation('نتيجة لذلك', 'ربط السبب بالنتيجة بشكل مباشر.')">نتيجة لذلك</span><span class="linguistic-tag" onclick="showLinguisticExplanation('بسبب', 'لتحديد العلة والسبب المباشر.')">بسبب</span></div></div>
-                <div class="tag-group"><h4>⚠️ روابط الاستدراك والموازنة</h4><div class="tag-list"><span class="linguistic-tag" onclick="showLinguisticExplanation('لكن', 'للاستدراك والمخالفة، تستخدم لتقديم رأي معارض.')">لكن</span><span class="linguistic-tag" onclick="showLinguisticExplanation('مع ذلك', 'رغم السبب السابق، تُظهر استمرار الفكرة.')">مع ذلك</span><span class="linguistic-tag" onclick="showLinguisticExplanation('بينما', 'للمقارنة بين رأيين مختلفين.')">بينما</span></div></div>
-                <div class="tag-group"><h4>📋 روابط الترتيب</h4><div class="tag-list"><span class="linguistic-tag" onclick="showLinguisticExplanation('أولاً', 'بداية عرض الحجج والتفريعات.')">أولاً</span><span class="linguistic-tag" onclick="showLinguisticExplanation('ثم', 'التتابع المنطقي أو الزمني.')">ثم</span><span class="linguistic-tag" onclick="showLinguisticExplanation('أخيراً', 'ختام سلسلة الأدلة.')">أخيراً</span></div></div>
-                <div class="tag-group"><h4>📖 روابط التفسير والتمثيل</h4><div class="tag-list"><span class="linguistic-tag" onclick="showLinguisticExplanation('مثلاً', 'تقديم نموذج واقعي أو توضيح.')">مثلاً</span><span class="linguistic-tag" onclick="showLinguisticExplanation('أي', 'توضيح المعنى وإعادة الصياغة.')">أي</span><span class="linguistic-tag" onclick="showLinguisticExplanation('على سبيل المثال', 'تجسيد الفكرة بمثال محسوس.')">على سبيل المثال</span></div></div>
+                <div class="tag-group"><h4>📌 روابط التعليل والنتيجة</h4><div class="tag-list" style="display:flex; flex-wrap:wrap; gap:10px;"><span class="linguistic-tag" onclick="showLinguisticExplanation('لأن', 'تُستخدم لبيان السبب والتعليل')">لأن</span><span class="linguistic-tag" onclick="showLinguisticExplanation('لذلك', 'تفيد النتيجة المترتبة')">لذلك</span><span class="linguistic-tag" onclick="showLinguisticExplanation('نتيجة لذلك', 'ربط السبب بالنتيجة')">نتيجة لذلك</span><span class="linguistic-tag" onclick="showLinguisticExplanation('بسبب', 'لتحديد العلة')">بسبب</span></div></div>
+                <div class="tag-group"><h4>⚠️ روابط الاستدراك</h4><div class="tag-list"><span class="linguistic-tag" onclick="showLinguisticExplanation('لكن', 'للاستدراك والمخالفة')">لكن</span><span class="linguistic-tag" onclick="showLinguisticExplanation('مع ذلك', 'رغم السبب السابق')">مع ذلك</span><span class="linguistic-tag" onclick="showLinguisticExplanation('بينما', 'للمقارنة')">بينما</span></div></div>
+                <div class="tag-group"><h4>📋 روابط الترتيب</h4><div class="tag-list"><span class="linguistic-tag" onclick="showLinguisticExplanation('أولاً', 'بداية عرض الحجج')">أولاً</span><span class="linguistic-tag" onclick="showLinguisticExplanation('ثم', 'التتابع المنطقي')">ثم</span><span class="linguistic-tag" onclick="showLinguisticExplanation('أخيراً', 'ختام الأدلة')">أخيراً</span></div></div>
+                <div class="tag-group"><h4>📖 روابط التفسير</h4><div class="tag-list"><span class="linguistic-tag" onclick="showLinguisticExplanation('مثلاً', 'تقديم نموذج واقعي')">مثلاً</span><span class="linguistic-tag" onclick="showLinguisticExplanation('أي', 'توضيح المعنى')">أي</span><span class="linguistic-tag" onclick="showLinguisticExplanation('على سبيل المثال', 'تجسيد الفكرة')">على سبيل المثال</span></div></div>
             </div>
             <div class="explanation-panel">
                 <h4>📖 شرح الأداة</h4>
-                <div id="linguisticExplanation">اضغط على أي أداة لغوية لترى معناها واستخدامها هنا.</div>
+                <div id="linguisticExplanation">اضغط على أي أداة لغوية لترى معناها.</div>
             </div>
         </div>
     </section>
 
-    <!-- 05 تحليل النص الجدلي -->
+    <!-- 05 تحليل النص -->
     <section id="analysis">
         <h2 class="section-title">✍️ 05. تحليل النص الجدلي (قضية التحرش)</h2>
-        <div class="interactive-text fade-in" id="analysisText"></div>
-        <div style="margin-top: 1rem; text-align: center;"><span class="linguistic-tag" style="background:#e0f2fe;">🔹 اضغط على أي جملة ملونة لمعرفة نوع الحجة</span></div>
+        <div class="interactive-text fade-in" id="analysisText" style="padding:2rem;"></div>
+        <div style="margin-top:1rem; text-align:center;"><span class="linguistic-tag" style="background:#6d28d9;">🔹 اضغط على أي جملة ملونة لمعرفة نوع الحجة</span></div>
     </section>
 
     <!-- النقاش الجدلي -->
     <section id="debate-view">
         <h2 class="section-title">⚡ النقاش الجدلي: وجهتا نظر</h2>
-        <div class="debate-split">
-            <div class="debate-card fade-in"><h3>🏠 الرأي الأول: الأسرة تتحمل المسؤولية الأساسية</h3><p>"التربية داخل البيت تشكّل أساس الوقاية، والرقابة الأسرية والتواصل الدائم مع الطفل يساعدان على اكتشاف أي خطر في بدايته."</p><small>حجة عقلية ومنطقية</small></div>
-            <div class="debate-card fade-in"><h3>⚖️ الرأي الثاني: المجتمع والقوانين يتحملان الدور الأكبر</h3><p>"القوانين الصارمة ضرورية لأن الردع القانوني يقلّل من جرأة المعتدين، والمؤسسات التربوية والإعلامية تنشر التوعية."</p><small>حجة واقعية واجتماعية</small></div>
+        <div class="debate-split" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
+            <div class="debate-card fade-in"><h3>🏠 الرأي الأول: الأسرة</h3><p>"التربية داخل البيت تشكّل أساس الوقاية، والرقابة الأسرية تساعد على اكتشاف أي خطر."</p><small>حجة عقلية</small></div>
+            <div class="debate-card fade-in"><h3>⚖️ الرأي الثاني: المجتمع والقوانين</h3><p>"القوانين الصارمة والمؤسسات التربوية تنشر التوعية وتحمي الطفل."</p><small>حجة واقعية</small></div>
         </div>
-        <div class="card" style="margin-top: 1.2rem; background: #fefce8; border-radius: 28px; padding:1rem;"><p><strong>🔍 القضية الإشكالية:</strong> من المسؤول عن حماية الطفل من التحرش؟ الأهل أم المجتمع؟ النص يقدم طرفين ويصل إلى حل تشاركي.</p></div>
+        <div class="obj-card" style="margin-top:1rem; background:rgba(0,0,0,0.5);"><p><strong>🔍 القضية الإشكالية:</strong> من المسؤول عن حماية الطفل من التحرش؟ الأهل أم المجتمع؟ النص يقدم حلًا تشاركيًا.</p></div>
     </section>
 
-    <!-- 06 خصائص النص الحجاجي -->
+    <!-- 06 خصائص -->
     <section id="features">
         <h2 class="section-title">🧩 06. خصائص النص الحجاجي</h2>
         <div class="accordion">
-            <div class="accordion-item"><div class="acc-header" onclick="toggleAccordion(this)">📌 1. وجود قضية خلافية <span>🔽</span></div><div class="acc-body">النص يقوم على قضية قابلة للنقاش تحتمل أكثر من رأي. مثال: مسؤولية حماية الطفل.</div></div>
+            <div class="accordion-item"><div class="acc-header" onclick="toggleAccordion(this)">📌 1. وجود قضية خلافية <span>🔽</span></div><div class="acc-body">النص يقوم على قضية قابلة للنقاش تحتمل أكثر من رأي.</div></div>
             <div class="accordion-item"><div class="acc-header" onclick="toggleAccordion(this)">🗣️ 2. تعدد وجهات النظر <span>🔽</span></div><div class="acc-body">يعرض الكاتب رأياً ويعارضه بآخر باستخدام أدوات مثل "بينما، لكن".</div></div>
-            <div class="accordion-item"><div class="acc-header" onclick="toggleAccordion(this)">📚 3. اعتماد الحجج والأدلة <span>🔽</span></div><div class="acc-body"><strong>حجة عقلية</strong> (منطق)، <strong>واقعية</strong> (تجارب)، <strong>إحصائية</strong> (أرقام). مثال: "تشير تقارير اليونيسيف..."</div></div>
+            <div class="accordion-item"><div class="acc-header" onclick="toggleAccordion(this)">📚 3. اعتماد الحجج والأدلة <span>🔽</span></div><div class="acc-body">حجة عقلية، واقعية، إحصائية. مثال: "تقارير اليونيسيف..."</div></div>
         </div>
     </section>
 
     <!-- 07 الخاتمة -->
     <section id="conclusion">
         <h2 class="section-title">📝 07. الخاتمة</h2>
-        <div class="card" style="background:white; border-radius:32px; padding:1.8rem;"><p>النص الجدلي هو نص يقوم على مناقشة قضية خلافية بين رأيين متعارضين، يهدف إلى إقناع القارئ باستخدام الحجج والبراهين المنطقية. يعتمد على مؤشرات لغوية كأفعال الرأي وأدوات الربط، ويدرب على النقد والموضوعية.</p></div>
+        <div class="obj-card"><p>النص الجدلي هو نص يقوم على مناقشة قضية خلافية بين رأيين متعارضين، يهدف إلى إقناع القارئ باستخدام الحجج والبراهين المنطقية. يعتمد على مؤشرات لغوية وأدوات الربط، ويدرب على النقد والموضوعية.</p></div>
     </section>
 
-    <!-- فيديو في النهاية -->
+    <!-- Vidéo -->
     <section id="video-section">
         <h2 class="section-title">🎬 النقاش المرئي: تطبيق عملي</h2>
         <div class="video-container">
@@ -529,23 +464,25 @@
                 متصفحك لا يدعم الفيديو.
             </video>
         </div>
-        <div style="text-align: center; margin-top: 1rem;">
+        <div style="text-align:center; margin-top:1rem;">
             <button class="replay-btn" onclick="rewatchVideo()">🔁 أعد المشاهدة مع التركيز</button>
         </div>
     </section>
 
-    <div class="educational-note">
+    <div class="educational-note" style="padding:1rem; text-align:center;">
         ⚠️ تم تناول هذا الموضوع بأسلوب تربوي يركز على التوعية والحماية مع تجنب أي تفاصيل غير مناسبة.
     </div>
 </div>
 
 <footer class="footer">
     <p>النص الجدلي: من الفهم إلى الإقناع – إعداد: مرام الدالي – فريق 07</p>
-    <p style="font-size: 0.8rem;">جميع الحقوق محفوظة © 2025 | تصميم تفاعلي تعليمي للتقديم أمام اللجنة</p>
+    <p style="font-size:0.8rem;">جميع الحقوق محفوظة © 2025 | تصميم تفاعلي تعليمي</p>
 </footer>
 
+<div id="globalPopup" class="fixed-popup"></div>
+
 <script>
-    // Progress + fade-in
+    // Barre de progression + fade-in
     window.addEventListener('scroll', () => {
         let scrolled = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
         document.getElementById('progress-bar').style.width = scrolled + '%';
@@ -558,38 +495,22 @@
     }
     checkFadeIn();
 
-    // دالة عامة لعرض نافذة منبثقة بالقرب من المؤشر
-    function showCustomPopup(message, event) {
-        let popup = document.createElement('div');
-        popup.className = 'custom-popup';
+    function showPopupMessage(message) {
+        let popup = document.getElementById('globalPopup');
         popup.innerHTML = message;
-        document.body.appendChild(popup);
-        
-        let x = event.clientX + 15;
-        let y = event.clientY + 15;
-        // ضبط الموقع ليبقى داخل الشاشة
-        if (x + 300 > window.innerWidth) x = window.innerWidth - 320;
-        if (y + 100 > window.innerHeight) y = window.innerHeight - 100;
-        popup.style.left = x + 'px';
-        popup.style.top = (window.scrollY + y) + 'px';
-        
-        setTimeout(() => { popup.remove(); }, 4000);
+        popup.classList.add('show');
+        setTimeout(() => popup.classList.remove('show'), 4000);
     }
 
-    // النوافذ المنبثقة لقسم بنية النص (03)
-    function showStructurePopup(event, title, explanation) {
-        event.stopPropagation();
-        let message = `<strong>${title}</strong><br>${explanation}`;
-        showCustomPopup(message, event);
-        console.log("Popup structure affichée : " + title);
+    function showStructurePopup(title, explanation) {
+        showPopupMessage(`<strong>${title}</strong><br>${explanation}`);
     }
 
-    // شرح الأدوات اللغوية في اللوحة الجانبية
     function showLinguisticExplanation(term, explanation) {
-        document.getElementById('linguisticExplanation').innerHTML = `<strong style="color:#6d28d9;">${term}</strong><br>${explanation}`;
+        document.getElementById('linguisticExplanation').innerHTML = `<strong style="color:#f59e0b;">${term}</strong><br>${explanation}`;
     }
 
-    // النص التحليلي الكامل (النسخة المطولة والمحسّنة)
+    // Texte d'analyse
     const newArgumentText = `يُعَدُّ التحرّش بالأطفال من أخطر الظواهر الاجتماعية ذات البنية الإشكالية المركّبة، بالنظر إلى ما ينطوي عليه من انتهاكات جسيمة تمسّ الكيان النفسي والجسدي للطفل، وتُخلّف ترسّبات صادمة قد تمتدّ آثارها إلى مختلف أطوار تشكّله الوجداني والمعرفي. وانطلاقًا من هذا المعطى، تتبلور إشكالية مركزية مفادها: إلى أيّ حدّ تُعدّ الأسرة الفاعل المحوري في حماية الطفل من هذه الجريمة، وإلى أيّ مدى يتقاسم المجتمع بمؤسساته المختلفة هذه المسؤولية؟
 
 يذهب اتجاه أوّل إلى إسناد الدور الحاسم إلى الأسرة باعتبارها النواة التربوية الأولى التي يتشكّل ضمنها وعي الطفل وبنيته القيمية. فالتنشئة الأسرية السليمة لا تقتصر على الإشباع العاطفي فحسب، بل تمتدّ لتشمل بناء تمثّلات واضحة حول الجسد وحدوده، وترسيخ وعي مبكّر بالحقوق الفردية وآليات الحماية الذاتية. ومن هذا المنظور، كلّما تمّ تمكين الطفل من رصيد معرفي-قيمي متين، تعزّزت قدرته على تفكيك وضعيات التهديد ورفضها. كما أنّ الحضور التواصلي الفعّال للأولياء، مقرونًا بالملاحظة الدقيقة، يُتيح إمكانات التدخّل المبكّر عند ظهور مؤشّرات انحرافية، في حين أنّ التفكّك الأسري أو الغياب الرقابي يُفضي إلى هشاشة بنيوية تجعل الطفل أكثر قابلية للاستهداف.
@@ -600,7 +521,6 @@
 
 وتأسيسًا على ذلك، تتعيّن بلورة مقاربة تكاملية قوامها التساند الوظيفي بين مختلف الفاعلين، حيث تتضافر أدوار الأسرة باعتبارها جهازًا للتنشئة، والمدرسة بوصفها مؤسسة للضبط والتأطير، والدولة كسلطة تشريعية وتنفيذية، والإعلام كقوة رمزية مؤثّرة. وفي هذا الأفق، تغدو حماية الطفل مشروعًا مجتمعيًا شاملاً، لا يتحقّق إلا ضمن رؤية نسقية تستحضر تداخل الأبعاد التربوية والقانونية والثقافية.`;
 
-    // بناء النص التفاعلي (كل جملة قابلة للنقر)
     function buildInteractiveText() {
         let container = document.getElementById('analysisText');
         let sentences = newArgumentText.split(/(?<=[.!?؟؛])\s+/);
@@ -610,38 +530,31 @@
             let span = document.createElement('span');
             span.className = 'analysis-span';
             span.innerText = sentence.trim() + ' ';
-            span.onclick = (function(text, ev) {
-                return function(clickEvent) {
-                    showAnalysisPopup(text, clickEvent);
-                };
+            span.onclick = (function(text) {
+                return function() { showAnalysisPopup(text); };
             })(sentence);
             container.appendChild(span);
         });
     }
 
-    // تحديد نوع الحجة وعرضها في نافذة منبثقة
-    function showAnalysisPopup(sentenceText, event) {
+    function showAnalysisPopup(sentenceText) {
         let argType = "📌 دليل جدلي";
-        if (sentenceText.includes('تقارير') || sentenceText.includes('إحصائية') || sentenceText.includes('نسبة') || sentenceText.includes('إحصاء')) 
+        if (sentenceText.includes('تقارير') || sentenceText.includes('إحصائية') || sentenceText.includes('نسبة')) 
             argType = "📊 حجة إحصائية";
-        else if (sentenceText.includes('أرى') || sentenceText.includes('لأن') || sentenceText.includes('التربية') || sentenceText.includes('منطق') || sentenceText.includes('وعي') || sentenceText.includes('تنشئة'))
+        else if (sentenceText.includes('أرى') || sentenceText.includes('لأن') || sentenceText.includes('التربية') || sentenceText.includes('منطق') || sentenceText.includes('وعي'))
             argType = "🧠 حجة عقلية";
-        else if (sentenceText.includes('القوانين') || sentenceText.includes('المجتمع') || sentenceText.includes('واقع') || sentenceText.includes('بيئة') || sentenceText.includes('فضاءات'))
+        else if (sentenceText.includes('القوانين') || sentenceText.includes('المجتمع') || sentenceText.includes('واقع') || sentenceText.includes('بيئة'))
             argType = "🌍 حجة واقعية";
-        
-        let shortText = sentenceText.length > 120 ? sentenceText.substring(0, 117) + '...' : sentenceText;
-        let message = `<strong>${argType}</strong><br>${shortText}`;
-        showCustomPopup(message, event);
+        let shortText = sentenceText.length > 120 ? sentenceText.substring(0,117)+'...' : sentenceText;
+        showPopupMessage(`<strong>${argType}</strong><br>${shortText}`);
     }
 
-    // إعادة تشغيل الفيديو
     function rewatchVideo() {
         let video = document.getElementById('argumentVideo');
         video.scrollIntoView({ behavior: 'smooth' });
-        if (video) { video.currentTime = 0; video.play().catch(e=>console.log); }
+        if(video) { video.currentTime = 0; video.play().catch(e=>{}); }
     }
 
-    // الأكورديون (خصائص النص)
     function toggleAccordion(header) {
         let body = header.nextElementSibling;
         let arrow = header.querySelector('span');
@@ -655,7 +568,6 @@
     }
     document.querySelectorAll('.acc-body').forEach(b => b.style.display = 'none');
 
-    // تمرير سلس للروابط العلوية
     document.querySelectorAll('.nav-sticky a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
